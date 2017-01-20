@@ -105,7 +105,7 @@ for user, data in user_data.items():
 			total_links += 1
 
 # Calculate and print homophily value
-print "Homophily index (max of 1) of this graph is: "+str(1 - float(cross_links) / total_links) if total_links > 0 else "0"
+print "Homophily index (max of 1) of this graph is: "+(str(1 - float(cross_links) / total_links) if total_links > 0 else "0")
 
 # Display the graph
 pos = nx.shell_layout(graph)
