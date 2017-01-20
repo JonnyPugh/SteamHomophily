@@ -1,5 +1,6 @@
 # SteamHomophily
 A python script to determine the homophily of Steam social networks.
+
 Developed by Jonathan Pugh
 
 ## Usage
