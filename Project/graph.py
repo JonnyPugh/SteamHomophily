@@ -50,8 +50,11 @@ for _ in range(20):
 
 # Get user data for the specified username
 username = sys.argv[1]
-steam_id = get_request_json("ISteamUser/ResolveVanityURL/v0001", {"vanityurl": username})["response"]["steamid"]
-ids_to_process.put(steam_id)
+steam_id_response = get_request_json("ISteamUser/ResolveVanityURL/v0001", {"vanityurl": username})["response"]
+if "steamid" not in steam_id_response:
+	print "Invalid steam username; user either does not exist or has a private profile"
+	sys.exit(1)
+ids_to_process.put(steam_id_response["steamid"])
 ids_to_process.join()
 
 # For the number of degrees of separation specified, gather data for friends
